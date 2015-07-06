@@ -18,7 +18,7 @@ RUN echo 'date.timezone = Europe/Paris' >> /etc/php5/cli/php.ini && \
     echo 'cgi.fix_pathinfo = 0' >> /etc/php5/fpm/php.ini && \
     echo 'daemon off;' >> /etc/nginx/nginx.conf
 
-VOLUME [ "/var/www" ]
+VOLUME [ "/etc/nginx/sites-enabled", "/var/www" ]
 
 EXPOSE 80
 
