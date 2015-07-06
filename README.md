@@ -13,6 +13,22 @@ You can customize image name with `FFERRIERE_NGINX_PHP_FPM_IMAGE` variable. Exam
 $ FFERRIERE_NGINX_PHP_FPM_IMAGE='prefix/nginx-php-fpm' ./build.sh
 ```
 
+Build contains light packages (mainly for php).
+You can build container with more packages thanks to `FFERRIERE_NGINX_PACKAGES_TO_INSTALL` variable.
+This variable can be contains a string or a file path.
+
+Example :
+```
+$ export FFERRIERE_NGINX_PACKAGES_TO_INSTALL="php5-mysql php5-pgsql"
+$ ./build.sh
+```
+
+Or :
+```
+$ echo 'php5-gd php5-pgsql php5-mcrypt' > ./to-install # or use exists file
+$ FFERRIERE_NGINX_PACKAGES_TO_INSTALL=./to-install ./build.sh
+```
+
 Run
 ---
 
