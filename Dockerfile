@@ -21,6 +21,9 @@ RUN mkdir /var/www && \
 ADD files/nginx/default /etc/nginx/sites-enabled/default
 ADD files/entrypoint.sh /usr/local/bin/entrypoint.sh
 
+ADD files/run-after/ /tmp/run-after/
+RUN /tmp/run-after/run-build.sh
+
 VOLUME [ "/etc/nginx/sites-enabled", "/var/www" ]
 
 EXPOSE 80
