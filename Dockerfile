@@ -26,3 +26,5 @@ VOLUME [ "/etc/nginx/sites-enabled", "/var/www" ]
 EXPOSE 80
 
 CMD [ "/usr/local/bin/entrypoint.sh" ]
+
+WORKDIR "/var/www"
