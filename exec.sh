@@ -1,0 +1,16 @@
+#!/bin/bash
+
+NAME='fferriere-nginx-php-fpm'
+if [ -n "$FFERRIERE_NGINX_PHP_FPM_NAME" ]; then
+    NAME="$FFERRIERE_NGINX_PHP_FPM_NAME"
+fi
+
+DOCKER_ARGS='-i';
+if [ -t 0 ]; then
+    DOCKER_ARGS="$DOCKER_ARGS -t"
+fi
+if [ -n "$FFERRIERE_NGINX_PHP_FPM_EXEC_DOCKER_ARGS" ]; then
+    DOCKER_ARGS="$DOCKER_ARGS $FFERRIERE_NGINX_PHP_FPM_EXEC_DOCKER_ARGS"
+fi
+
+docker exec $DOCKER_ARGS $NAME $FFERRIERE_NGINX_PHP_FPM_EXEC_CMD
