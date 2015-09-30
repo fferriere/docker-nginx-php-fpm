@@ -44,6 +44,11 @@ if [ -n "$CNF_PATH" ]; then
     VOL_ARGS="$VOL_ARGS -v $CNF_PATH:/etc/nginx/sites-enabled"
 fi
 
-docker run -d $VOL_ARGS \
+DOCKER_ARGS=''
+if [ -n "$FFERRIERE_NGINX_PHP_FPM_RUN_DOCKER_ARGS" ]; then
+    DOCKER_ARGS="$DOCKER_ARGS $FFERRIERE_NGINX_PHP_FPM_RUN_DOCKER_ARGS"
+fi
+
+docker run -d $VOL_ARGS $DOCKER_ARGS \
     --name $NAME \
     $IMAGE $@
