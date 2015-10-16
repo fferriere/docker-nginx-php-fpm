@@ -85,3 +85,8 @@ $ export FFERRIERE_NGINX_SRC_PATH=$(pwd)'/www'
 $ export FFERRIERE_NGINX_CNF_PATH=$(pwd)'/cnf'
 $ ./run.sh
 ```
+
+You can also add docker options on run with `FFERRIERE_NGINX_PHP_FPM_RUN_DOCKER_ARGS` variable. Example :
+```
+    FFERRIERE_NGINX_PHP_FPM_RUN_DOCKER_ARGS='-p 80:80' ./run.sh
+```
